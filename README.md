@@ -1,1 +1,2 @@
-# Calculator-OdinP
+# calculator
+project from odin-project
