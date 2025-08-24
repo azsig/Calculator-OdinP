@@ -9,6 +9,9 @@ const display = document.querySelector('.display');
 
 buttons.forEach(btn => {
     btn.addEventListener('click', function(e){
+        if (e.target.id === 'theme-toggle') return;
+
+
         let text = e.target.textContent
     
         if(!parseFloat(text) && text != '.' && text != '=' && text != 'Clear' && text != 'Delete' && text != '0'){
@@ -144,3 +147,13 @@ const clear = () =>{
     lastNumber = ''
     result = '';
 }
+
+const themeToggle = document.getElementById('theme-toggle');
+themeToggle.addEventListener('click', () => {
+    document.body.classList.toggle('dark');
+    document.querySelector('.body').classList.toggle('dark');
+    document.querySelector('.display').classList.toggle('dark');
+    document.querySelectorAll('button').forEach(btn => btn.classList.toggle('dark'));
+    document.querySelectorAll('a').forEach(a => a.classList.toggle('dark'));
+    //themeToggle.textContent = document.body.classList.contains('dark') ? 'Light Mode' : 'Dark Mode';
+});

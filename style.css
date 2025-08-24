@@ -1,78 +1,171 @@
-*{
+* {
+    box-sizing: border-box;
     padding: 0;
     margin: 0;
 }
 
-body{
+:root {
+    --bg-gradient: linear-gradient(135deg, #6dd5ed, #2193b0);
+    --bg-card: #fff;
+    --bg-display: #f0f0f0;
+    --bg-button: #2193b0;
+    --bg-button-hover: #1a7a8c;
+    --bg-header-btn: #2193b0;
+    --color-main: #2193b0;
+    --color-text: #333;
+    --color-button: #fff;
+    --color-link: #2193b0;
+    --color-header: #2193b0;
+    --color-footer: #2193b0;
+    --border-display: #2193b0;
+    --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+body.dark {
+    --bg-gradient: linear-gradient(135deg, #232526, #414345);
+    --bg-card: #222;
+    --bg-display: #333;
+    --bg-button: #444;
+    --bg-button-hover: #666;
+    --bg-header-btn: #444;
+    --color-main: #6dd5ed;
+    --color-text: #eee;
+    --color-button: #eee;
+    --color-link: #6dd5ed;
+    --color-header: #6dd5ed;
+    --color-footer: #6dd5ed;
+    --border-display: #444;
+    --shadow-card: 0 4px 20px rgba(0,0,0,0.7);
+}
+
+body {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: rgb(9, 110, 199);
+    height: 100vh;
+    background: var(--bg-gradient);
+    font-family: 'Arial', sans-serif;
+    color: var(--color-text);
 }
 
-.body{
+.body {
     width: 100%;
-    max-width: 300px;
-    padding: 20px 30px;
-    background-color: rgb(91, 151, 132);
-    border-radius: 5%;
-    margin: 50px ;
+    max-width: 400px;
+    padding: 20px;
+    background-color: var(--bg-card);
+    border-radius: 15px;
+    box-shadow: var(--shadow-card);
 }
 
-.display{
+.display {
     width: 100%;
-    max-width: 240px;
-    height: 200px;
-    margin: auto;
-    margin-bottom: 10px;
-    border: solid 2px black;
-    background-color: rgb(206, 201, 201);
+    height: 80px;
+    margin-bottom: 20px;
+    border: solid 2px var(--border-display) ;
+    background-color: var(--bg-display);
+    border-radius: 10px;
+    font-size: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 10px;
+    color: var(--color-text);
 }
 
-button{
-    width: 60px;
-    height: 60px;
+button {
+    width: 70px;
+    height: 70px;
+    font-size: 24px;
+    border: none;
+    border-radius: 10px;
+    margin: 5px;
+    background-color: var(--bg-button);
+    color: var(--color-button);
+    transition: background-color 0.3s, transform 0.1s;
 }
 
-.digitOperator{
+button:hover {
+    background-color: var(--bg-button-hover);
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+.digitOperator {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.digit {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.operator {
+    display: grid;
+}
+
+.delete {
     display: flex;
     justify-content: center;
 }
 
-.digit{
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
-    grid-template-rows: repeat(4, 1fr);
+footer {
+    font-size: 18px;
+    margin-top: 20px;
 }
 
-.operator{
-    display: grid;
-}
-
-.delete{
-    display: flex;
-    justify-content: center;
-}
-
-footer{
-    /* padding-top: 40px; */
-    font-size: 20px;
-    margin-bottom: 10px;
-}
-
-a{
+a {
     text-decoration: none;
-    color: black;
+    color: var(--color-link);
 }
 
-a:hover{
+a:hover {
     text-decoration: underline;
 }
 
-#gh-logo{
-    width: 25px;
-    height: 25px;
-    margin-bottom: -6px;
+#gh-logo {
+    width: 20px;
+    height: 20px;
+    margin-bottom: -4px;
     margin-right: 5px;
+}
+
+.header {
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    padding: 0 20px;   
+    color: var(--color-header);
+}
+
+.header h1 {
+    font-size: 24px;
+    color: var(--color-header);
+
+}
+
+.header button {
+    background-color: var(--bg-header-btn);
+    color: var(--color-button);
+    padding: 10px 15px;
+    font-size: 16px;
+    width: auto;
+    height: 40px;
+    border-radius: 8px;
+    background-color: var(--bg-button);
+    columns: var(--color-button);
+    border: none;
+    transition: background-color 0.3s, transform 0.1s;
+}
+
+.header button:hover {
+    background-color: var(--bg-button-hover);
 }
